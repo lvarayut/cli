@@ -35,6 +35,7 @@
     "pg-hstore": "latest",
     "prettier": "^2.0.5",
     "sequelize": "^6.1.0",
+    "shx": "^0.3.3",
     "sqlite3": "latest",
     "through2": "^4.0.0"
   },
@@ -49,9 +50,9 @@
   },
   "scripts": {
     "build": "npm run build-clean && babel src -d lib && npm run build-bin && npm run build-assets",
-    "build-bin": "mv ./lib/sequelize.js ./lib/sequelize && chmod +x ./lib/sequelize",
-    "build-assets": "cp -R ./src/assets ./lib/",
-    "build-clean": "rm -rf ./lib/",
+    "build-bin": "shx mv ./lib/sequelize.js ./lib/sequelize && shx chmod +x ./lib/sequelize",
+    "build-assets": "shx cp -R ./src/assets ./lib/",
+    "build-clean": "shx rm -rf ./lib/",
     "lint": "eslint test src",
     "pretty": "prettier src test --write",
     "prepare": "npm run build",
